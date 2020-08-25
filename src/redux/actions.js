@@ -29,11 +29,8 @@ export const getCityWeather = (lat, lon) => {
 
 export const getWeatherByCityName = async (cityName) => {
   const response = await fetch(
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Moscow&inputtype=textquery&fields=geometry&key=AIzaSyAv8Qbi4W1dMjdUi-BkOqQwohE6aGOMe94`
-    // { method: 'GET', redirect: 'follow' }
+    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${cityName}&inputtype=textquery&fields=geometry&key=${GOOGLE_PLACES_API_KEY}`
   );
-  const location = await response.text();
+  const location = await response.json();
   console.log('location: ', location);
 };
-
-// var requestOptions = { method: 'GET', redirect: 'follow' };
